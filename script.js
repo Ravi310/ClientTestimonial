@@ -3,7 +3,7 @@ let employees = [
         image: "./img/customer-0.jpg",
         name: "SANDY",
         rating: "A",
-        comment: "aaaaaaaaaaaaaaaaaaaaa",
+        comment: "aaaaaaaaaaaaaaaaaaaaaaaaa",
     },
     {
         image: "./img/customer-1.jpg",
@@ -49,18 +49,30 @@ btn.addEventListener("click", control);
 
 function control(e) {
 
-    console.log("clicked");
-    i = i + e;
-    if (i == employees.length) {
-        i = 0;
-    }
-    else if (i < 0) {
-        i = employees.length - 1;
-    }
+    img.style.opacity = 0;
+    name.style.opacity = 0;
+    rating.style.opacity = 0;
+    comment.style.opacity = 0;
 
-    img.src = employees[i].image;
-    name.innerHTML = employees[i].name;
-    rating.innerHTML = employees[i].rating;
-    comment.innerHTML = employees[i].comment;
+    setTimeout(() => {
+        i = i + e;
+        if (i == employees.length) {
+            i = 0;
+        }
+        else if (i < 0) {
+            i = employees.length - 1;
+        }
+
+        img.src = employees[i].image;
+        name.innerHTML = employees[i].name;
+        rating.innerHTML = employees[i].rating;
+        comment.innerHTML = employees[i].comment;
+        img.style.opacity = 1;
+        name.style.opacity = 1;
+        rating.style.opacity = 1;
+        comment.style.opacity = 1;
+    }, 500);
+
+
 
 }
